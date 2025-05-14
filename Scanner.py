@@ -1,7 +1,7 @@
 import requests
 import json
 
-# NSE से डेटा लेने का URL
+# NSE से डेटा प्राप्त करना
 url = "https://www.nseindia.com/api/option-chain-indices?symbol=NIFTY"
 headers = {
     "User-Agent": "Mozilla/5.0"
@@ -12,7 +12,7 @@ session.headers.update(headers)
 response = session.get(url)
 data = response.json()
 
-# OI और IV आधारित कॉल्स और पुट्स
+# OI और IV के आधार पर कॉल और पुट विकल्पों का विश्लेषण
 for record in data["records"]["data"]:
     if "CE" in record and "PE" in record:
         ce = record["CE"]
